@@ -3,15 +3,24 @@ from datetime import datetime  # Core Python Module
 from pymongo import MongoClient
 
 
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+uri = "mongodb+srv://rhitamamou:sXyplBF8UxFlkzFH@cluster0.k05ldb0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+db = client["Income_db2"]
+mycol=db['period']
+
 import plotly.graph_objects as go  # pip install plotly
 import streamlit as st  # pip install streamlit
 from streamlit_option_menu import option_menu  # pip install streamlit-option-menu
 
 
 # MongoDB connection
-myclient = MongoClient("mongodb://localhost:27017/")
-db = myclient["Income_db"]
-mycol=db['period']
+#myclient = MongoClient("mongodb://localhost:27017/")
+#db = myclient["Income_db"]
+#mycol=db['period']
 
 
 
