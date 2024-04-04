@@ -39,12 +39,7 @@ months = list(calendar.month_name[1:])
 
 
 # --- NAVIGATION MENU ---
-selected = option_menu(
-    menu_title=None,
-    options=["Data Entry", "Data Visualization"],
-      # https://icons.getbootstrap.com/
-    orientation="horizontal"
-)
+selected = option_menu(menu_title=None,options=["Data Entry", "Data Visualization"],orientation="horizontal")
 
 # --- HIDE STREAMLIT STYLE ---
 hide_st_style = """
@@ -62,6 +57,7 @@ def get_all_periods():
     periods = [item["key"] for item in items]
     return periods
 
+@st.cache_data
 def get_period(period):
     my_query = { "key": period } 
     return mycol.find(my_query)[0]
